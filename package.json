@@ -1,0 +1,21 @@
+{
+  "name": "workers",
+  "version": "1.0.0",
+  "scripts": {
+    "start:jobmaster": "node jobmaster/server.js",
+    "start:worker": "node worker/processor.js",
+    "dev:jobmaster": "nodemon jobmaster/server.js",
+    "dev:worker": "nodemon worker/processor.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "bull": "^4.16.5",
+    "dotenv": "^16.5.0",
+    "express": "^5.1.0"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.10"
+  }
+}
