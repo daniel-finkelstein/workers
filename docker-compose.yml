@@ -6,6 +6,7 @@ services:
       - "6379:6379"
 
   jobmaster:
+    container_name: jobmaster_service
     build:
       context: .
       dockerfile: Dockerfile
@@ -26,3 +27,9 @@ services:
     depends_on:
       - redis
     command: node worker/processor.js
+
+networks:
+  default:
+    external:
+      name: shared-network
+

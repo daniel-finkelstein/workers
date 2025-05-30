@@ -23,7 +23,7 @@ app.get('/heartbeat', (req, res) => {
 });
 
 const PORT = process.env.PORT || 3001;
-app.listen(PORT, () => {
+app.listen(PORT, '0.0.0.0', () => {
   console.log(`JobMaster running on port ${PORT}`);
 });
 
