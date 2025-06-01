@@ -1,9 +1,12 @@
 version: '3.8'
+
 services:
   redis:
     image: redis:6
     ports:
       - "6379:6379"
+    networks:
+      - backend-network
 
   jobmaster:
     build:
@@ -16,6 +19,8 @@ services:
     depends_on:
       - redis
     command: node jobmaster/server.js
+    networks:
+      - backend-network
 
   worker:
     build:
@@ -26,3 +31,9 @@ services:
     depends_on:
       - redis
     command: node worker/processor.js
+    networks:
+      - backend-network
+
+networks:
+  backend-network:
+    external: true
